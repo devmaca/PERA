@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>agregar</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script> -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<!-- Nombre del Sitio -->
+	<div class="container text-center jumbotron">
+		<h1>Plataforma Educativa Regimiento Aroma</h1>
+	</div>
+	<!-- Navbar -->
+	<div class="container ">
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+			<!-- Links -->
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="index.html">Inicio</a>
+				</li>  
+
+				<!-- Dropdown -->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Agregar</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="#">Materia 1</a>
+						<a class="dropdown-item" href="#">Materia 2</a>
+						<a class="dropdown-item" href="#">Materia 3</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Profesores</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Ayuda</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Contacto</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	<hr/>
+<!-- Contenderores -->
+	<div class="container">
+			<div class="row">
+				<div class="col-md-7 border border-dark jumbotron">
+					<h2>AGREGAR CONTENIDO</h2>
+					<form action="/session" method="post">
+						<div class="form-group">
+							<label for="titulo">Titulo </label>
+							<input class="form-control" type="text" name="titulo" placeholder="titulo" id="titulo" />
+						</div>
+						<div class="form-group">
+							<label for="seccion">Seccion </label>
+							<input class="form-control" type="text" name="seccion" placeholder="seccion" id="seccion" />
+						</div>
+						<div class="form-group">
+							<label for="descripcion">Descripcion </label>
+							<textarea class="form-control" name="descripcion"></textarea>
+						</div>
+						<div class="form-group">
+							<label for="archivo">Subir Archivo</label>
+							<input type="file" name="archivo"/>
+						</div>
+						<div class="form-group">
+							<label for="tipo">Tipo</label>
+							<select name="tipo" class="jumbotron" style="">
+								<option value="tipo1">Tipo 1</option>
+								<option value="tipo2">Tipo 2</option>
+								<option value="tipo3">Tipo 3</option>
+							</select>
+						</div>
+						<div class="row top-space ">
+							<div class="col-xs-6 col-sm-6">
+								<input class="btn btn-primary btn-block" type="submit" value="Guardar" />
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-md-1"></div>
+				<!-- contenedor login -->
+				<div class="border border-dark col-md-4 jumbotron ">
+					<h2 class="border border-dark">Ver Contenido Materias </h2>
+					<form action="/session" method="post">
+						<div class="form-group border border-dark">
+							<a href="#" class="btn btn-secondary">Materia1</a>
+						</div>
+						<div class="form-group border border-dark">
+							<a href="#" class="btn btn-secondary">Materia2</a>
+						</div>
+						<div class="form-group border border-dark">
+							<a href="#" class="btn btn-secondary">Materia3</a>
+						</div>
+						<div class="form-group border border-dark">
+							<a href="#" class="btn btn-secondary">Materia4</a>
+						</div>
+					</form>
+				</div>
+			</div>
+	</div>
+	<style type="text/css">
+		.fond_color{
+			background-color:#549EB8;
+			}
+	</style>
+</body>
+</html>
+
+<!-- apuntes
+  -  Escribir  condigo html a
+  -	 
+		
+		 -->

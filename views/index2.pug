@@ -1,0 +1,65 @@
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		title vv
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js', charset='utf-8')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', charset='utf-8')
+		link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css')
+		link(rel='stylesheet', href='/public/files_carrusel/style.css')
+	body
+		.blogs.owl-carousel.es
+			.blog
+				a(src='https://ibb.co/TbzqjXm')
+					img(src='https://i.ibb.co/3MtY6XB/1.jpg', alt='imagen_juego', title='bicho')
+				.blog-description
+					.categorie Juegos
+					h2.title Lorem ipsum dolor sit amet
+					.date 14 enero 2020
+					a.btn(href='#') Read more
+			.blog
+				h1 Titulo Prueba Efecto Carrussel
+				.blog-description
+					.categorie aleatorio
+					h2.title  #{title} 
+					.date  #{message} 
+					a.btn(href='#') Read more		
+			.blog
+				a(src='https://ibb.co/G7qtbmd')
+					img(src='https://i.ibb.co/R2qBV8g/0.jpg', alt='bajo electrico', title='bajo electrico krait')
+				.blog-description
+					.categorie Instrumentos
+					h2.title Lorem ipsum dolor sit amet
+					.date 14 enero 2020
+					a.btn(href='#') Read more
+			.blog
+				img(src='/public/files_carrusel/image/3.jpg', alt='albert einstein' title='Einstein', height="100px", width="100px")
+				.blog-description
+					.categorie Albert Einstein
+					h2.title Lorem ipsum dolor sit amet
+					.date 14 enero 2020
+					a.btn(href='#') Read more
+			.blog
+				a(src='https://imgbb.com/')
+					img(src='https://i.ibb.co/xHV6qHS/imagen777.jpg', alt='imagen777', title='imagen777')
+				.blog-description
+					.categorie Miguel Condori
+					h2.title Lorem ipsum dolor sit amet
+					.date 14 enero 2020
+					a.btn(href='/home/materia') Read more
+		script(type='text/javascript').
+			$(".owl-carousel").owlCarousel({
+			items: 2,
+			margin: 20,
+			loop: true,
+			center: true,
+			dots: false
+			});
+		style(type='text/css').
+			.es {
+				margin-top: 20px;
+				margin-left: 20px;
+				margin-right: 20px;
+				margin-bottom: 20px;
+
+			}

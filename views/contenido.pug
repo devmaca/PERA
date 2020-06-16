@@ -1,0 +1,83 @@
+doctype html
+html
+	head
+		title Contenido
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+		// <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js')
+	body
+		// Nombre del Sitio
+		.container.text-center.jumbotron
+			h1 CONTENIDO MATERIA
+		// Navbar
+		.container
+			nav.navbar.navbar-expand-sm.bg-dark.navbar-dark
+				// Links
+				ul.navbar-nav
+					li.nav-item
+						a.nav-link(href='/') Inicio
+					// Dropdown
+					li.nav-item.dropdown
+						a#navbardrop.nav-link.dropdown-toggle(href='#', data-toggle='dropdown') Cursos
+						.dropdown-menu
+							a.dropdown-item(href='materias.html') Curso 1
+							a.dropdown-item(href='#') Curso 2
+							a.dropdown-item(href='#') Curso 3
+					li.nav-item
+						a.nav-link(href='#') Profesores
+					li.nav-item
+						a.nav-link(href='#') Ayuda
+					li.nav-item
+						a.nav-link(href='#') Contacto
+		hr
+		// Contenderores
+		.container
+			.row
+				// contenedor login
+				.border.border-dark.col-md-4.jumbotron
+					h4 Contenido MATERIA 1 
+					ul
+						li Seccion 1
+						ul
+							li
+								a(href='#') Tema 1
+							li
+								a(href='#') Tema 2
+							li
+								a(href='#') Tema 3
+						li Seccion 2
+						ul
+							li
+								a(href='#') Tema 4
+							li
+								a(href='#') Tema 5
+							li ***
+						li Seccion 3
+				.col-md-1
+				.col-md-7.border.border-dark.jumbotron
+					h2 Titulo del Tema
+					p Lorem ipsum dolor sit amet, consectetur adipisicing elit
+					p
+						| Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						| tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						| quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						| consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						| cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						| proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					iframe(src='index.html', width='100%')
+					a(href='https://ibb.co/Gk2Xqv1')
+						img(src='https://i.ibb.co/Gk2Xqv1/20150718-155920.jpg', alt='20150718-155920' title='Paseo', border='0')
+		style(type='text/css').
+			.fond_color {
+			background-color: #549EB8;
+			}
+			.espacio{
+			margin-left: 10px;
+			margin-right: 10px;
+			}
+			.colorbody{
+			background-color: yellow;
+			}

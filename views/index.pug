@@ -1,0 +1,77 @@
+doctype html
+html
+	head
+		title home
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+		// <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js')
+	body
+		// Nombre del Sitio
+		.espacio.text-center(style='background-color: grey')
+			span
+				span(style='font-size: 58px; color: white') Plataforma Educativa Regimiento Aroma
+			// <h1>Plataforma Educativa Regimiento Aroma</h1>
+			// Navbar
+		.espacio
+			nav.navbar.navbar-expand-sm.bg-dark.navbar-dark
+				// Links
+				ul.navbar-nav
+					li.nav-item
+						a.nav-link(href='/') Inicio
+					// Dropdown
+					li.nav-item.dropdown
+						a#navbardrop.nav-link.dropdown-toggle(href='#', data-toggle='dropdown') Cursos
+						.dropdown-menu
+							a.dropdown-item(href='/home/materia') Curso 1
+							a.dropdown-item(href='#') Curso 2
+							a.dropdown-item(href='#') Curso 3
+					li.nav-item
+						a.nav-link(href='/doce') Profesores
+					li.nav-item
+						a.nav-link(href='#') Ayuda
+					li.nav-item
+						a.nav-link(href='#') Contacto
+		hr
+		// Contenderores
+		.container-md
+			.row.espacio
+				.col-md-7.border.border-dark.jumbotron
+					span(style='color:black')
+						span(style='font-size: 48px') Informacion
+					p Lorem ipsum dolor sit amet, consectetur adipisicing elit
+					p
+						| Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						| tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						| quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						| consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						| cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						| proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				.col-md-1
+				// contenedor login
+				.border.border-dark.col-md-4.jumbotron
+					h2 Iniciar sesion 
+					p Solo profesores
+					form(action='/session', method='post')
+						.form-group
+							label(for='user') Usuario 
+							input#user.form-control(type='text', name='user', placeholder='usuario')
+						.form-group
+							label(for='password') Password 
+							input#password.form-control(type='password', name='password', placeholder='password')
+						.row.top-space
+							.col-xs-6.col-sm-6
+								input.btn.btn-primary.btn-block(type='submit', value='iniciar')
+		style(type='text/css').
+			.fond_color {
+			background-color: #549EB8;
+			}
+			.espacio{
+			margin-left: 10px;
+			margin-right: 10px;
+			}
+			.colorbody{
+			background-color: yellow;
+			}
