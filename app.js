@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
  
-
+app.set('port', process.env.PORT || 3000);
 
 app.get("/", function(req, res){
 	let nombre = "MiguelCondori"
@@ -88,5 +88,6 @@ app.use("/home",routes_home);
 app.use("/doce",routes_doce);
 
 
-app.listen(3000,'localhost');
-console.log("El servidor 'PERA' esta corriendo en el puerto 3000")
+app.listen(app.get('port'), ()=>{
+	console.log(`El servidor esta corriendo en el puerto ${app.get('port')}`);
+});
