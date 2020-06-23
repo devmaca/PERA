@@ -40,7 +40,7 @@ app.get("/", function(req, res){
 	res.render('index');
 	
 })
-var datos = [{user:"ifkjlf",pass:"lklj"},{user:"111",pass:"3333"},{user:"121",pass:"3333"}];
+var datos = [{user:"12345678",pass:"admin123"},{user:"111",pass:"3333"},{user:"121",pass:"3333"}];
 
 function buscarUser(user,pass){
 	var u = false;
@@ -53,16 +53,6 @@ function buscarUser(user,pass){
 	return u;
 }
 app.post('/session', (req,res)=>{
-	var adm={
-		user:"12345678",
-		pass:"admin123"
-	}
-
-
-	var doc={
-		user:"87654321",	
-		pass:"prof123"
-	}
 
 	if(buscarUser(req.body.user,req.body.password)){
 
