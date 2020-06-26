@@ -1,0 +1,23 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.espacio
+	a.navbar-brand(href='#') Plataforma Educativa
+	button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavDropdown', aria-controls='navbarNavDropdown', aria-expanded='false', aria-label='Toggle navigation')
+		span.navbar-toggler-icon
+	#navbarNavDropdown.collapse.navbar-collapse
+		ul.navbar-nav
+			li.nav-item.active
+				a.nav-link(href='/')
+					| Inicio
+					span.sr-only (current)
+			li.nav-item.dropdown
+				a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Cursos
+				.dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+					a.dropdown-item(href='/home/curso/1') Nivel Inicial
+					a.dropdown-item(href='/home/curso/2') Nivel Primario
+			li.nav-item
+				a.nav-link(href='/doce') Profesores
+			li.nav-item
+				a.nav-link(href='/admin') Administrador
+			li.nav-item
+				a.nav-link(href='#') Ayuda
+			li.nav-item
+				a.nav-link(href='#') Contacto

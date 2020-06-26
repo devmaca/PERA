@@ -11,6 +11,10 @@ var routes_home = require('./routes_home.js');
 var routes_doce = require('./routes_doce.js');
 var routes_admin = require('./routes_admin.js')
 
+var pool =require('./src/database.js');
+pool.query("select * from admin",[],function(err,result){
+	console.log('el resultado es : ',result)
+})
 
 /* Integrando motor de vistas pug */
 app.set('views', './views'); // specify the views directory
@@ -41,6 +45,19 @@ app.get("/", function(req, res){
 	
 })
 var datos = [{user:"12345678",pass:"admin123"},{user:"111",pass:"3333"},{user:"121",pass:"3333"}];
+var cursos = [{nom:"primero",nivel:"inicial"},
+				{nom:"segundo",nivel:"inicial"},
+				{nom:"tercero",nivel:"primario"},
+				{nom:"cuarto",nivel:"primario"},
+				{nom:"quinto",nivel:"primario"},
+				{nom:"sexto",nivel:"primario"}
+				];
+var area = [
+			{nom:"Matematica"},
+			{nom:"lenguaje"},
+			{nom:"Sociales"},
+			{nom:"Naturales"},
+			]
 
 function buscarUser(user,pass){
 	var u = false;

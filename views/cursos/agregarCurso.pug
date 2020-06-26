@@ -20,28 +20,38 @@ html
 					li.nav-item
 						a.nav-link(href='/') Inicio
 					// Dropdown
-					//li.nav-item.dropdown
+					li.nav-item.dropdown
 						a#navbardrop.nav-link.dropdown-toggle(href='#', data-toggle='dropdown') Agregar
 						.dropdown-menu
-							a.dropdown-item(href='/doce/add_curso') Curso
+							a.dropdown-item(href='/doce/agregar') Materia 1
 							a.dropdown-item(href='/doce/agregar') Materia 2
 							a.dropdown-item(href='/doce/agregar') Materia 3
 					li.nav-item
-						a.nav-link(href='/doce/add_curso') Agregar curso
+						a.nav-link(href='#') Ayuda
 					li.nav-item
 						a.nav-link(href='#') Contacto
 					li.nav-item
 						a.nav-link(href='#')  Cerrar Sesion
 		hr
-		// Contenderores
+		// Contenedor
 		.container
 			.row
-				.col-md-7.border.border-dark.jumbotron
-					h2 MODULO DOCENTE
-					p Cursos
-					for n in cursos
-						.row
-							.col-sm-3.my-1
-								a.btn.btn-info.btn-block(href='/doce/'+n.id+'') #{n.nombre}
-				
-				
+				.col-md-4.border.border-dark.mx-auto
+					.card
+						.card-body
+							h4 Crear nuevo curso
+							form(action='/doce/add_curso', method='post')
+								.form-group
+									label(for='grado') Grado o nombre del Curso 
+									input#user.form-control(type='text', name='grado', placeholder='Ejemplo : Primero, Segundo ...')
+								.form-group
+									label(for='nivel') Nivel del Curso :
+									br 
+									select(name='nivel', style='')
+										option(value="1") Inicial
+										option(value="2") Primario
+										option(value="3") Secundario
+									
+								.row.top-space
+									.col-xs-6.col-sm-6
+										input.btn.btn-primary.btn-block(type='submit', value='Crear')

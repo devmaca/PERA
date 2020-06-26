@@ -9,33 +9,7 @@ html
 		// <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js')
 	body
-		// Nombre del Sitio
-		.espacio.text-center(style='background-color: grey')
-			span
-				span(style='font-size: 58px; color: white') Plataforma Educativa Regimiento Aroma
-			// <h1>Plataforma Educativa Regimiento Aroma</h1>
-			// Navbar
-		.espacio
-			nav.navbar.navbar-expand-sm.bg-dark.navbar-dark
-				// Links
-				ul.navbar-nav
-					li.nav-item
-						a.nav-link(href='/') Inicio
-					// Dropdown
-					li.nav-item.dropdown
-						a#navbardrop.nav-link.dropdown-toggle(href='#', data-toggle='dropdown') Cursos
-						.dropdown-menu
-							a.dropdown-item(href='/home/materia') Curso 1
-							a.dropdown-item(href='#') Curso 2
-							a.dropdown-item(href='#') Curso 3
-					li.nav-item
-						a.nav-link(href='/doce') Profesores
-					li.nav-item
-						a.nav-link(href='/admin') Administracion		
-					li.nav-item
-						a.nav-link(href='#') Ayuda
-					li.nav-item
-						a.nav-link(href='#') Contacto
+		include navbar/navbarHome.pug
 		hr
 		// Contenderores
 		.container-md
