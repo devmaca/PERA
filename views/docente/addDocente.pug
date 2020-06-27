@@ -10,11 +10,11 @@ html
 		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js')
 	body
 		// Nombre del Sitio
-		.container.text-center.jumbotron
+		//-.container.text-center.jumbotron
 			h1 Plataforma Educativa Regimiento Aroma
 		// Navbar
 		.container
-			include ../navbar/navbarDoce.pug
+			include ../navbar/navbarAdmin.pug
 		hr
 		// Contenedor
 		.container
@@ -22,19 +22,20 @@ html
 				.col-md-4.border.border-dark.mx-auto
 					.card
 						.card-body
-							h4 Crear nuevo curso
-							form(action='/doce/add_curso', method='post')
+							h4 Registrar docente
+							form(action='/admin/add_docente', method='post')
 								.form-group
-									label(for='grado') Grado o nombre del Curso 
-									input#user.form-control(type='text', name='grado', placeholder='Ejemplo : Primero, Segundo ...')
+									label(for='nom') Nombres 
+									input#user.form-control(type='text', name='nom', placeholder='Nombre')
 								.form-group
-									label(for='nivel') Nivel del Curso :
-									br 
-									select(name='nivel', style='')
-										option(value="1") Inicial
-										option(value="2") Primario
-										option(value="3") Secundario
-									
+									label(for='ap') Apellidos 
+									input#user.form-control(type='text', name='ap', placeholder='Apellido')
+								.form-group
+									label(for='ci') CI 
+									input#user.form-control(type='text', name='ci', placeholder='Numero Carnet')
+								.form-group
+									label(for='pass') Contrasena 
+									input#user.form-control(type='text', name='pass', placeholder='Contrasena')
 								.row.top-space
 									.col-xs-6.col-sm-6
 										input.btn.btn-primary.btn-block(type='submit', value='Crear')

@@ -59,28 +59,38 @@ var area = [
 			{nom:"Naturales"},
 			]
 
-function buscarUser(user,pass){
-	var u = false;
-	for(var i=0; i <= datos.length - 1; i++){
-		if(datos[i].user == user && datos[i].pass == pass){
-			console.log('usuario encontrado');
-			u = true;
+var sesion = function (req,res){
+	pool.query('SELECT * FROM admin WHERE ci=? and password=?',[req.body.user,req.body.password],(err,result)=>{
+		if(err) throw err;
+
+		if(!result[0]){
+			pool.query('SELECT * FROM docente WHERE ci=? and pass=?',[req.body.user,req.body.password],(err,result2)=>{
+				if(err) throw err;
+				if(!result2[0])
+				{
+					res.redirect('/')
+					console.log('usuario no existe: ',result2)
+				}
+				else{ 
+					console.log(result2)
+					req.session.usuario = result2[0].id;
+					res.redirect('/doce')
+				}
+			})
+		}else{
+		const mostrar = {
+				id :result[0].id,
+				nombre : result[0].nombres,
+				apellido : result[0].apellidos,
+				ci : result[0].ci
 		}
-	}
-	return u;
+		console.log('usuario: ',mostrar)
+			req.session.usuario = result[0].id;
+			res.redirect('/admin');
+		}
+	})
 }
-app.post('/session', (req,res)=>{
-
-	if(buscarUser(req.body.user,req.body.password)){
-
-		req.session.usuario = 1;
-
-		res.redirect("/admin")
-	}else{
-		res.redirect('/')
-	}
-
-})
+app.post('/session', sesion)
 
 app.get("/logout", function(req,res){
 		console.log("cerrando sesion");

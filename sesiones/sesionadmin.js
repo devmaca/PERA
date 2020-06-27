@@ -7,7 +7,7 @@ module.exports = function(req,res,next){
 		res.redirect("/")// vuelve a ruta login
 
 	}
-	else if(req.session.usuario == 1){
+	else{
 		console.log("usuario "+req.session.usuario+" iniciando sesion...");
 		res.locals = {	user:req.session.usuario,
 						nom:'administrador'};		

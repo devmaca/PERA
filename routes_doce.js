@@ -4,7 +4,8 @@ var con = require('./src/database.js');
 
 
 router.get('/', function(req, res){
-	con.query("SELECT * FROM curso",[],function(err,result){
+	console.log("Usuario Id docente  : "+req.session.usuario)
+	con.query("SELECT * FROM curso WHERE docenteId=?",[req.session.usuario],function(err,result){
 			if(err) throw err;
 			console.log(result);
 			res.render('docente',{cursos:result})
@@ -20,7 +21,7 @@ router.route('/add_curso')
 		const curso = {	
 			nombre: req.body.grado,
 			nivel: req.body.nivel,
-			docenteId: 1}
+			docenteId: req.session.usuario}
 		con.query("INSERT INTO curso set ?",[curso],function(err,result){
 			if(err) throw err;
 			console.log('Curso registrado...'+result.affectedRows);

@@ -14,38 +14,41 @@ html
 			h1 Plataforma Educativa Regimiento Aroma
 		// Navbar
 		.container
-			nav.navbar.navbar-expand-sm.bg-dark.navbar-dark
-				// Links
-				ul.navbar-nav
-					li.nav-item
-						a.nav-link(href='/') Inicio
-					// Dropdown
-					li.nav-item.dropdown
-						a#navbardrop.nav-link.dropdown-toggle(href='#', data-toggle='dropdown') Agregar
-						.dropdown-menu
-							a.dropdown-item(href='/admin/agregar') Cursos
-							a.dropdown-item(href='/doce/agregar') Areas
-							a.dropdown-item(href='/doce/agregar') Materia 3
-					li.nav-item
-						a.nav-link(href='#') Ayuda
-					li.nav-item
-						a.nav-link(href='#') Contacto
-					li.nav-item
-						a.nav-link(href='/logout')  Cerrar Sesion
+			include navbar/navbarAdmin.pug
 		hr
 		// Contenderores
 		.container
 			.row
-				.col-md-7.border.border-dark.jumbotron
-					h2 ADMINISTRADOR
-					p Lorem ipsum dolor sit amet, consectetur adipisicing elit
-					p
-						| Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						| tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						| quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						| consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						| cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						| proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				.col-md-7.border.border-dark
+					h2 Docentes Registrados
+					if (!data)
+						p No hay docentes registrados
+					else
+						for x in data
+							p #{x.id} -- #{x.nombres} -- #{x.apellidos} -- #{x.ci}
+						table.table.table-sm.table-bordered
+							thead
+								tr
+									th(scope='col') #
+									th(scope='col') Nombre
+									th(scope='col') Apellido
+									th(scope='col') CI
+							tbody
+								tr
+									th(scope='row') 1
+									td Mark
+									td Otto
+									td @mdo
+								tr
+									th(scope='row') 2
+									td Jacob
+									td Thornton
+									td @fat
+								tr
+									th(scope='row') 3
+									td(colspan='2') Larry the Bird
+									td @twitter
+
 				.col-md-1
 				// contenedor login
 				.border.border-dark.col-md-4.jumbotron

@@ -14,24 +14,7 @@ html
 			h1 Plataforma Educativa Regimiento Aroma
 		// Navbar
 		.container
-			nav.navbar.navbar-expand-sm.bg-dark.navbar-dark
-				// Links
-				ul.navbar-nav
-					li.nav-item
-						a.nav-link(href='/') Inicio
-					// Dropdown
-					//li.nav-item.dropdown
-						a#navbardrop.nav-link.dropdown-toggle(href='#', data-toggle='dropdown') Agregar
-						.dropdown-menu
-							a.dropdown-item(href='/doce/add_curso') Curso
-							a.dropdown-item(href='/doce/agregar') Materia 2
-							a.dropdown-item(href='/doce/agregar') Materia 3
-					li.nav-item
-						a.nav-link(href='/doce/add_curso') Agregar curso
-					li.nav-item
-						a.nav-link(href='#') Contacto
-					li.nav-item
-						a.nav-link(href='#')  Cerrar Sesion
+			include navbar/navbarDoce.pug
 		hr
 		// Contenderores
 		.container
@@ -39,9 +22,12 @@ html
 				.col-md-7.border.border-dark.jumbotron
 					h2 MODULO DOCENTE
 					p Cursos
-					for n in cursos
-						.row
-							.col-sm-3.my-1
-								a.btn.btn-info.btn-block(href='/doce/'+n.id+'') #{n.nombre}
+					if (cursos == 0)
+						p No tiene Curso
+					else
+						for n in cursos
+							.row
+								.col-sm-3.my-1
+									a.btn.btn-info.btn-block(href='/doce/'+n.id+'') #{n.nombre}
 				
 				

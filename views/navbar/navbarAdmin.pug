@@ -1,23 +1,23 @@
 nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.espacio
-	a.navbar-brand(href='#') Plataforma Educativa
+	a.navbar-brand(href='#') Plataforma Educativa - Admin
 	button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavDropdown', aria-controls='navbarNavDropdown', aria-expanded='false', aria-label='Toggle navigation')
 		span.navbar-toggler-icon
 	#navbarNavDropdown.collapse.navbar-collapse
 		ul.navbar-nav
 			li.nav-item.active
-				a.nav-link(href='/')
+				a.nav-link(href='/admin')
 					| Inicio
 					span.sr-only (current)
-			li.nav-item.dropdown
-				a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Cursos
-				.dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
-					a.dropdown-item(href='/home/materia') Nivel Inicial
-					a.dropdown-item(href='#') Nivel Primario
+			//- li.nav-item.dropdown
+			//- 	a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Cursos
+			//- 	.dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+			//- 		a.dropdown-item(href='/home/materia') Nivel Inicial
+			//- 		a.dropdown-item(href='#') Nivel Primario
 			li.nav-item
-				a.nav-link(href='/doce') Profesores
+				a.nav-link(href='/admin/add_docente') Agregar docente
 			li.nav-item
-				a.nav-link(href='/admin') Administrador
+				a.nav-link(href='/#') Contacto
 			li.nav-item
 				a.nav-link(href='#') Ayuda
 			li.nav-item
-				a.nav-link(href='#') Contacto
+				a.nav-link(href='/logout') Cerrar Sesion
