@@ -4,32 +4,24 @@ var con =require('./src/database.js');
 router.get('/', function(req, res){
 	res.render('index2');
 })
-var cursos = [{nom:"primero",nivel:"inicial"},
-				{nom:"segundo",nivel:"inicial"},
-				{nom:"tercero",nivel:"primario"},
-				{nom:"cuarto",nivel:"primario"},
-				{nom:"quinto",nivel:"primario"},
-				{nom:"sexto",nivel:"primario"}
-				];
+
 // /home/materia
 router.route('/curso/:id')
 	.get(function(req, res){
-		if(req.params.id <= 1){
-			//inicial
-			let n = 'inicial'
-			res.render('cursos',{nivel:n,cursos:cursos});
-		}else{
-			//primario
-			let n = 'primario';
-			res.render('cursos',{nivel:n,cursos:cursos})
-		}
+		con.query('SELECT * FROM curso WHERE nivel = ?',[req.params.id], function(err, result){
+			if(err) throw err;
+			console.log(result);
+			res.render('cursos',{curso:result});
+		})
+
 	})
-router.route('/:curso')
+router.route('/:id')
 	.get(function(req, res){
-		con.query('select * from admin',[],(err, result)=>{
-			if(err) console.error(err);
-			console.log(result)
-			res.send(req.params.curso)
+		con.query('SELECT * FROM curso WHERE id=?',[req.params.id],(err, result)=>{
+			if(err) throw err;
+			console.log(result);
+			
+			res.send('En desarrollo...')
 		})
 	})
 

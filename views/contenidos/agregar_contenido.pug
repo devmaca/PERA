@@ -14,49 +14,35 @@ html
 			h1 Plataforma Educativa Regimiento Aroma
 		// Navbar
 		.container
-			nav.navbar.navbar-expand-sm.bg-dark.navbar-dark
-				// Links
-				ul.navbar-nav
-					li.nav-item
-						a.nav-link(href='/') Inicio
-					// Dropdown
-					li.nav-item.dropdown
-						a#navbardrop.nav-link.dropdown-toggle(href='#', data-toggle='dropdown') Agregar
-						.dropdown-menu
-							a.dropdown-item(href='/doce/agregar') Materia 1
-							a.dropdown-item(href='/doce/agregar') Materia 2
-							a.dropdown-item(href='/doce/agregar') Materia 3
-					li.nav-item
-						a.nav-link(href='#') Profesores
-					li.nav-item
-						a.nav-link(href='#') Ayuda
-					li.nav-item
-						a.nav-link(href='#') Contacto
+			include ../navbar/navbarDoce.pug
 		hr
 		// Contenderores
 		.container
 			.row
 				.col-md-7.border.border-dark.jumbotron
 					h2 AGREGAR CONTENIDO
-					form(action='/session', method='post')
+					form(action='/doce/add_content/'+cursoId+'', method='post')
 						.form-group
 							label(for='titulo') Titulo 
 							input#titulo.form-control(type='text', name='titulo', placeholder='titulo')
 						.form-group
-							label(for='seccion') Seccion 
-							input#seccion.form-control(type='text', name='seccion', placeholder='seccion')
+							label(for='seccion') Seccion
+							select(name='seccion') 
+								option(value="1") 1
+								option(value="2") 2
+								option(value="3") 3
+								option(value="4") 4
 						.form-group
 							label(for='descripcion') Descripcion 
 							textarea.form-control(name='descripcion')
 						.form-group
-							label(for='archivo') Subir Archivo
-							input(type='file', name='archivo')
+							label(for='archivo') Subir Archivo  (* aun no funciona esta opcion)
+							input(type='file', name='archivo', disabled)
 						.form-group
-							label(for='tipo') Curso
-							select(name='tipo', style='')
-								option(value='tipo1') Tipo 1
-								option(value='tipo2') Tipo 2
-								option(value='tipo3') Tipo 3
+							label(for='area') Area 
+							select(name='area', style='')
+								for a in areas
+									option(value=a.id) #{a.nom}
 						.row.top-space
 							.col-xs-6.col-sm-6
 								input.btn.btn-primary.btn-block(type='submit', value='Guardar')

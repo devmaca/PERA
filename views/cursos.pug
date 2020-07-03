@@ -17,13 +17,16 @@ html
 		.container
 			.row
 				.col-md-7.border.border-dark.jumbotron
-					h2 Nivel #{nivel} 
+					if curso[1].nivel == 1
+						h2 Nivel inicial
+					else
+						h2 Nivel Primario
 					hr.bg-primary
 					p.text-primary.pt-0.mt-0 Selecione un curso
-					for n in cursos
+					for n in curso
 						.row
 							.col-sm-3
-							a.btn.btn-info.btn-block(href='/home/'+n.nom)  #{n.nom} #{n.nivel}
+							a.btn.btn-info.btn-block(href='/home/'+n.id)  #{n.nombre}
 
 				.col-md-1
 		style(type='text/css').

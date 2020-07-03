@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var con = require('./src/database.js');
 
-
 router.get('/', function(req, res){
 	console.log("Usuario Id docente  : "+req.session.usuario)
 	con.query("SELECT * FROM curso WHERE docenteId=?",[req.session.usuario],function(err,result){
@@ -28,12 +27,21 @@ router.route('/add_curso')
 			res.redirect('/doce')
 		})
 	})
-
-
-router.route('/agregar')
-	.get(function(req, res){
-		res.render('agregar_contenido.pug');
+/* Agregar contenido*/
+router.route('/add_content/:id')
+	.get(function(req,res){
+		con.query("SELECT * FROM area",[], function(err,result){
+			if(err) throw err;
+			res.render('contenidos/agregar_contenido.pug',{areas:result,cursoId:req.params.id})
+		})
+		
 	})
+	.post(function(req,res){
+		console.log(req.body.titulo,req.body.seccion,req.body.descripcion)
+		console.log(req.body)
+		res.send('received...'+req.params.id)
+	})
+
 
 /* /home/contenido */
 // router.route('/contenido')

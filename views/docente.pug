@@ -27,7 +27,10 @@ html
 					else
 						for n in cursos
 							.row
-								.col-sm-3.my-1
-									a.btn.btn-info.btn-block(href='/doce/'+n.id+'') #{n.nombre}
+								.col-sm-6.my-1
+									if n.nivel <=1
+										a.btn.btn-info.btn-block(href='/doce/add_content/'+n.id+'') #{n.nombre} Nivel inicial
+									else
+										a.btn.btn-info.btn-block(href='/doce/add_content/'+n.id+'') #{n.nombre} Nivel primario
 				
 				
