@@ -11,6 +11,9 @@ var routes_home = require('./routes_home.js');
 var routes_doce = require('./routes_doce.js');
 var routes_admin = require('./routes_admin.js')
 
+var formData = require("express-form-data");
+const os = require("os");
+
 var pool =require('./src/database.js');
 pool.query("select * from admin",[],function(err,result){
 	console.log('el resultado es : ',result)
@@ -44,20 +47,27 @@ app.get("/", function(req, res){
 	res.render('index');
 	
 })
-var datos = [{user:"12345678",pass:"admin123"},{user:"111",pass:"3333"},{user:"121",pass:"3333"}];
-var cursos = [{nom:"primero",nivel:"inicial"},
-				{nom:"segundo",nivel:"inicial"},
-				{nom:"tercero",nivel:"primario"},
-				{nom:"cuarto",nivel:"primario"},
-				{nom:"quinto",nivel:"primario"},
-				{nom:"sexto",nivel:"primario"}
-				];
-var area = [
-			{nom:"Matematica"},
-			{nom:"lenguaje"},
-			{nom:"Sociales"},
-			{nom:"Naturales"},
-			]
+app.get("/conten", function(req, res){
+	res.send("aaaaaaaaaaaaaeeeeeeeeoooooo")
+	
+})
+console.log("Nombre de la máquina -> " + os.hostname());
+console.log("Arquitectura -> " + os.arch());
+console.log("Plataforma -> " + os.platform());
+console.log("Memoria total (Bytes) -> " + os.totalmem());
+const options = {
+  uploadDir: './public/file_upload',
+  autoClean: false
+};
+
+// parse data with connect-multiparty. 
+app.use(formData.parse(options));
+// delete from the request all empty files (size == 0)
+app.use(formData.format());
+// change the file objects to fs.ReadStream 
+app.use(formData.stream());
+// union the body and the files
+app.use(formData.union());
 
 var sesion = function (req,res){
 	pool.query('SELECT * FROM admin WHERE ci=? and password=?',[req.body.user,req.body.password],(err,result)=>{
@@ -103,7 +113,6 @@ app.use("/admin", session_admin);
 app.use("/admin",routes_admin);
 app.use("/home",routes_home);
 app.use("/doce",routes_doce);
-
 
 app.listen(app.get('port'), ()=>{
 	console.log(`El servidor esta corriendo en el puerto ${app.get('port')}`);

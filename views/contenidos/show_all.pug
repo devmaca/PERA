@@ -1,7 +1,7 @@
 doctype html
 html
 	head
-		title materias
+		title show all
 		meta(charset='utf-8')
 		meta(name='viewport', content='width=device-width, initial-scale=1')
 		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css')
@@ -10,33 +10,25 @@ html
 		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js')
 	body
 		// Nombre del Sitio
+		.container.text-center.jumbotron
+			h1 Plataforma Educativa Regimiento Aroma
 		// Navbar
-		include navbar/navbarHome.pug
+		.container
+			include ../navbar/navbarHome.pug
 		hr
 		// Contenderores
 		.container
 			.row
-				.col-md-7.border.border-dark.jumbotron
-					if curso[0].nivel == 1
-						h2 Nivel inicial
-					else
-						h2 Nivel Primario
-					hr.bg-primary
-					p.text-primary.pt-0.mt-0 Selecione un curso
-					for c in curso
-						.row
-							.col-sm-3
-							a.btn.btn-info.btn-block(href='/home/contenido/'+c.id)  #{c.nombre}
-
-				.col-md-1
+				.col-md-7.border.border-dark
+					h2 Mostrar todo los contenidos
+					hr
+					for c in content
+						h2 Titulo : #{c.titulo}
+						p Descripcion : #{c.descripcion}
+						p Area : #{c.areaId}
+						iframe(src='/'+c.contenido+'', width='100%' height="100%")
+						hr
 		style(type='text/css').
-			.fond_color {
-			background-color: #549EB8;
-			}
-			.espacio{
-			margin-left: 10px;
-			margin-right: 10px;
-			}
-			.colorbody{
-			background-color: yellow;
+			.fond_color{
+			background-color:#549EB8;
 			}

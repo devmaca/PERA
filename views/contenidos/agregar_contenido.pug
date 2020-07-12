@@ -21,7 +21,7 @@ html
 			.row
 				.col-md-7.border.border-dark.jumbotron
 					h2 AGREGAR CONTENIDO
-					form(action='/doce/add_content/'+cursoId+'', method='post')
+					form(action='/doce/add_content/'+cursoId+'', enctype="multipart/form-data",method='post')
 						.form-group
 							label(for='titulo') Titulo 
 							input#titulo.form-control(type='text', name='titulo', placeholder='titulo')
@@ -37,7 +37,7 @@ html
 							textarea.form-control(name='descripcion')
 						.form-group
 							label(for='archivo') Subir Archivo  (* aun no funciona esta opcion)
-							input(type='file', name='archivo', disabled)
+							input(type='file', name='archivo',class="form-control")
 						.form-group
 							label(for='area') Area 
 							select(name='area', style='')

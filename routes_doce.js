@@ -37,9 +37,22 @@ router.route('/add_content/:id')
 		
 	})
 	.post(function(req,res){
-		console.log(req.body.titulo,req.body.seccion,req.body.descripcion)
-		console.log(req.body)
-		res.send('received...'+req.params.id)
+		console.log(req.files.archivo.path)
+		let contenido = {
+			titulo : req.body.titulo,
+			seccion : req.body.seccion,
+			descripcion : req.body.descripcion,
+			contenido : req.files.archivo.path,
+			areaId : req.body.area,
+			cursoId : req.params.id
+		}
+		con.query("INSERT INTO contenido set ?",[contenido],function(err,result){
+			if(err) throw err;
+			console.log('recibido...')
+			res.send('received...')
+			
+		})
+		
 	})
 
 
