@@ -14,25 +14,7 @@ html
 		.container.text-center.jumbotron
 			h1 CONTENIDO MATERIA
 		// Navbar
-		.container
-			nav.navbar.navbar-expand-sm.bg-dark.navbar-dark
-				// Links
-				ul.navbar-nav
-					li.nav-item
-						a.nav-link(href='/') Inicio
-					// Dropdown
-					li.nav-item.dropdown
-						a#navbardrop.nav-link.dropdown-toggle(href='#', data-toggle='dropdown') Cursos
-						.dropdown-menu
-							a.dropdown-item(href='materias.html') Curso 1
-							a.dropdown-item(href='#') Curso 2
-							a.dropdown-item(href='#') Curso 3
-					li.nav-item
-						a.nav-link(href='#') Profesores
-					li.nav-item
-						a.nav-link(href='#') Ayuda
-					li.nav-item
-						a.nav-link(href='#') Contacto
+		include ../navbar/navbarHome.pug
 		hr
 		// Contenderores
 		.container

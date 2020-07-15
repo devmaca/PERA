@@ -37,3 +37,20 @@ html
 								.row.top-space
 									.col-xs-6.col-sm-6
 										input.btn.btn-primary.btn-block(type='submit', value='Crear')
+				.col-md-4.border.border-dark.mx-auto
+					.card
+						.card-body
+							h4 Cursos Registrados
+							if (!cursos[0])
+								p Aun no Existe Cursos
+							else
+								table.table.table-sm.table-bordered
+									thead
+										tr
+											th(scope='col') #
+											th(scope='col') Nombre
+									tbody
+										for c in cursos
+											tr
+												th(scope='row') *
+												td #{c.nombre}

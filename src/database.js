@@ -1,14 +1,15 @@
 const mysql = require('mysql');
 // const { promisify }= require('util');
 
-// const pool = mysql.createConnection({
-// 	connectionLimit: 10,
-// 	host: 'db4free.net',
-// 	user: 'devmaca',
-// 	password: 'meolvide',	
-// 	database:'app123'
-// });
-// db local
+const pool = mysql.createConnection({
+	connectionLimit: 10,
+	host: 'db4free.net',
+	user: 'devmaca',
+	password: 'meolvide',	
+	database:'app123'
+});
+
+//db local
 // const pool = mysql.createConnection({
 // 	connectionLimit: 10,
 // 	host: '127.0.0.1',
@@ -17,15 +18,15 @@ const mysql = require('mysql');
 // 	database:'app123'
 // });
 
-//db remote---
+//db remote clever---
 
-const pool = mysql.createConnection({
-	connectionLimit: 5,
-	host: 'bi2f9ohi82y4lzyjrixg-mysql.services.clever-cloud.com',
-	user: 'umucshwppxxwd4wq',
-	password: 'oQtUO7OYr7Mg24tUGcn3',	
-	database:'bi2f9ohi82y4lzyjrixg'
-});
+// const pool = mysql.createConnection({
+// 	connectionLimit: 5,
+// 	host: 'bi2f9ohi82y4lzyjrixg-mysql.services.clever-cloud.com',
+// 	user: 'umucshwppxxwd4wq',
+// 	password: 'oQtUO7OYr7Mg24tUGcn3',	
+// 	database:'bi2f9ohi82y4lzyjrixg'
+// });
 
 
 pool.connect(function(err){

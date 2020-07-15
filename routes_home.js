@@ -10,7 +10,7 @@ router.get('/', function(req, res){
 })
 
 // /home/materia
-router.route('/curso/:id')
+router.route('/nivel/:id')
 	.get(function(req, res){
 		con.query('SELECT * FROM curso WHERE nivel = ?',[req.params.id], function(err, result){
 			if(err) throw err;
@@ -30,11 +30,14 @@ router.route('/curso/:id')
 // 	})
 
 /* /home/contenido */
-router.route('/contenido')
+router.route('/contenido/:id')
 	.get(function(req, res){
-		res.render('contenido.pug');
+		con.query('SELECT * FROM contenido WHERE id=?',[req.params.id],(err,result)=>{
+			if(err) throw err;
+			res.render('contenidos/show',{content:result})
+		})
 	})
-router.route('/contenido/:idCurso')
+router.route('/curso/:idCurso')
 	.get(function(req, res){
 		con.query('SELECT * FROM area',[],(err,result)=>{
 			if(err) throw err;
@@ -43,11 +46,11 @@ router.route('/contenido/:idCurso')
 		
 	})
 
-router.route('/contenido/:idCurso/:idArea')
+router.route('/curso/:idCurso/:idArea')
 	.get(function(req, res){
 		con.query('SELECT * FROM contenido WHERE cursoId = ? and areaId=?',[req.params.idCurso,req.params.idArea],(err,result)=>{
 			if(err) throw err;
-			res.render('cursos/areasCurso',{areas:result,idCurso:req.params.idCurso})
+			res.render('cursos/content',{content:result})
 		})
 		
 	})

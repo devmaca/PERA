@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var app = express();
 
 var session_admin = require('./sesiones/sesionadmin.js');
+var session_doce = require('./sesiones/sesiondoce.js');
 
 var routes_home = require('./routes_home.js');
 var routes_doce = require('./routes_doce.js');
@@ -112,6 +113,7 @@ app.get("/logout", function(req,res){
 app.use("/admin", session_admin);
 app.use("/admin",routes_admin);
 app.use("/home",routes_home);
+app.use("/doce",session_doce);
 app.use("/doce",routes_doce);
 
 app.listen(app.get('port'), ()=>{

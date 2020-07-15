@@ -20,7 +20,7 @@ html
 		.container
 			.row
 				.col-md-7.border.border-dark.jumbotron
-					h2 AGREGAR CONTENIDO
+					h3 Agregar Nuevo Contenido
 					form(action='/doce/add_content/'+cursoId+'', enctype="multipart/form-data",method='post')
 						.form-group
 							label(for='titulo') Titulo 
@@ -49,16 +49,10 @@ html
 				.col-md-1
 				// contenedor login
 				.border.border-dark.col-md-4.jumbotron
-					h2.border.border-dark Ver Contenido Materias 
-					form(action='/session', method='post')
+					h2.border.border-dark Ver Contenido Materias
+					for aa in areas
 						.form-group.border.border-dark
-							a.btn.btn-secondary(href='#') Materia1
-						.form-group.border.border-dark
-							a.btn.btn-secondary(href='#') Materia2
-						.form-group.border.border-dark
-							a.btn.btn-secondary(href='#') Materia3
-						.form-group.border.border-dark
-							a.btn.btn-secondary(href='#') Materia4
+							a.btn.btn-warning(href='/home/curso/'+cursoId+'/'+aa.id+'') #{aa.nom}
 		style(type='text/css').
 			.fond_color{
 			background-color:#549EB8;

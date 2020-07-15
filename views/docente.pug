@@ -21,7 +21,11 @@ html
 			.row
 				.col-md-7.border.border-dark.jumbotron
 					h2 MODULO DOCENTE
-					p Cursos
+					h4 Perfil
+					hr
+					p Nombre: #{doce[0].nombres} - Apellido: #{doce[0].apellidos} - ci: #{doce[0].ci}
+					hr
+					h4 Cursos
 					if (cursos == 0)
 						p No tiene Curso
 					else

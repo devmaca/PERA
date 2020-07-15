@@ -2,19 +2,32 @@ var express = require('express');
 var router = express.Router();
 var con = require('./src/database.js');
 
+/* ruta central docente*/
 router.get('/', function(req, res){
 	console.log("Usuario Id docente  : "+req.session.usuario)
+	var docente;
+	/*Consulta para extraer perfil de docente*/
+	con.query("SELECT * FROM docente WHERE id=?",[req.session.usuario],function(err,result2){
+		if(err) throw err;
+		docente = result2;
+	})
+	/*Consulta para extraer perfil de docente*/
 	con.query("SELECT * FROM curso WHERE docenteId=?",[req.session.usuario],function(err,result){
 			if(err) throw err;
 			console.log(result);
-			res.render('docente',{cursos:result})
+			res.render('docente',{cursos:result,doce:docente})
 		})
+	
 })
 
 /* Agregar curso */
 router.route('/add_curso')
 	.get(function(req, res){
-		res.render('cursos/agregarCurso.pug')
+		con.query('SELECT * FROM curso',[],(err,result)=>{
+			if(err) throw err;
+			res.render('cursos/agregarCurso.pug',{cursos:result})
+		})
+
 	})
 	.post(function(req, res){
 		const curso = {	
