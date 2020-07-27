@@ -8,10 +8,8 @@ html
 		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
 		// <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js')
+		link(href="/public/css/app.css" rel="stylesheet")
 	body
-		// Nombre del Sitio
-		.container.text-center.jumbotron
-			h1 Plataforma Educativa Regimiento Aroma
 		// Navbar
 		.container
 			include ../navbar/navbarDoce.pug
@@ -21,7 +19,7 @@ html
 			.row
 				.col-md-4.border.border-dark.mx-auto
 					.card
-						.card-body
+						.card-body.fondcol
 							h4 Crear nuevo curso
 							form(action='/doce/add_curso', method='post')
 								.form-group
@@ -39,7 +37,7 @@ html
 										input.btn.btn-primary.btn-block(type='submit', value='Crear')
 				.col-md-4.border.border-dark.mx-auto
 					.card
-						.card-body
+						.card-body.fondcol
 							h4 Cursos Registrados
 							if (!cursos[0])
 								p Aun no Existe Cursos

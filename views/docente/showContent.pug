@@ -1,0 +1,31 @@
+doctype html
+html
+	head
+		title show all
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css')
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+		// <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js')
+	body
+		// Navbar
+		.container
+			include ../navbar/navbarHome.pug
+		hr
+		// Contenderores
+		.container
+			.row
+				.col-md-7.border.border-dark
+					h2 Contenidos
+					hr
+					for c in content
+						h2 Titulo : #{c.titulo}
+						p Descripcion : #{c.descripcion}
+						p Area : #{c.areaId}
+						iframe(src='/'+c.contenido+'', width='100%' height="100%")
+						hr
+		style(type='text/css').
+			.fond_color{
+			background-color:#549EB8;
+			}

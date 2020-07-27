@@ -8,6 +8,7 @@ html
 		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
 		// <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js')
+		link(href="/public/css/app.css" rel="stylesheet")
 	body
 		include navbar/navbarHome.pug
 		hr
@@ -16,16 +17,11 @@ html
 			.row.espacio
 				.col-md-7.border.border-dark.jumbotron
 					span(style='color:black')
-						span(style='font-size: 48px') Bienvenido a la plataforma de contenidos 
-					h4 U.E. Regimiento Aroma
-					p En esta plataforma solo se puede subir archivos pdf 
-					p
-						| Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						| tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						| quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						| consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						| cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						| proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						span(style='font-size: 48px') U.E. Regimiento Aroma
+					h4
+					p Bienvenidos a la Plataforma de contenidos 
+					p Recibe subida de archivos pdf
+					
 				.col-md-1
 				// contenedor login
 				.border.border-dark.col-md-4.jumbotron
@@ -48,8 +44,8 @@ html
 			background-color: #549EB8;
 			}
 			.espacio{
-			margin-left: 10px;
-			margin-right: 10px;
+			margin-left: 20px;
+			margin-right: 20px;
 			}
 			.colorbody{
 			background-color: yellow;

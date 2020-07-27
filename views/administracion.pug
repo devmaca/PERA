@@ -8,10 +8,9 @@ html
 		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
 		// <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js')
+		link(href="/public/css/app.css" rel="stylesheet")
 	body
 		// Nombre del Sitio
-		.container.text-center.jumbotron
-			h1 Plataforma Educativa Regimiento Aroma
 		// Navbar
 		.container
 			include navbar/navbarAdmin.pug
@@ -19,45 +18,34 @@ html
 		// Contenderores
 		.container
 			.row
-				.col-md-7.border.border-dark
-					h2 Docentes Registrados
+				.col-md-7.border.border-dark.jumbotron.fondcol
+					h4 Lista Docentes Registrados
 					if (!data)
 						p No hay docentes registrados
 					else
-						for x in data
-							p #{x.id} -- #{x.nombres} -- #{x.apellidos} -- #{x.ci}
 						table.table.table-sm.table-bordered
 							thead
 								tr
-									th(scope='col') #
+									th(scope='col') 
 									th(scope='col') Nombre
 									th(scope='col') Apellido
-									th(scope='col') CI
+									th(scope='col') C.I.
 							tbody
-								tr
-									th(scope='row') 1
-									td Mark
-									td Otto
-									td @mdo
-								tr
-									th(scope='row') 2
-									td Jacob
-									td Thornton
-									td @fat
-								tr
-									th(scope='row') 3
-									td(colspan='2') Larry the Bird
-									td @twitter
-
+								for x in data
+									tr
+										td *
+										td #{x.nombres}
+										td #{x.apellidos}
+										td #{x.ci}
 				.col-md-1
 				// contenedor login
-				.border.border-dark.col-md-4.jumbotron
-					h2.border.border-dark CURSOS
+				.border.border-dark.col-md-4.jumbotron.fondcol
+					
 					form(action='/session', method='post')
-						.form-group.border.border-dark
-							a.btn.btn-secondary(href='#') Nivel Inicial
-						.form-group.border.border-dark
-							a.btn.btn-secondary(href='#') Nivel Primario
+						.form-group
+							a.btn.btn-success(href='/admin/add_docente') Crear Nuevo Usuario
+						.form-group
+							a.btn.btn-primary(href='#') Publicar
 
 		style(type='text/css').
 			.fond_color {

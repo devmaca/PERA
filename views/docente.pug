@@ -8,10 +8,8 @@ html
 		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
 		// <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js')
+		link(href="/public/css/app.css" rel="stylesheet")
 	body
-		// Nombre del Sitio
-		.container.text-center.jumbotron
-			h1 Plataforma Educativa Regimiento Aroma
 		// Navbar
 		.container
 			include navbar/navbarDoce.pug
@@ -19,13 +17,18 @@ html
 		// Contenderores
 		.container
 			.row
-				.col-md-7.border.border-dark.jumbotron
-					h2 MODULO DOCENTE
+				.col-md-6.border.border-dark.jumbotron.fondcol
 					h4 Perfil
 					hr
-					p Nombre: #{doce[0].nombres} - Apellido: #{doce[0].apellidos} - ci: #{doce[0].ci}
+					p 
+						strong Nombre:
+						| &nbsp; #{doce[0].nombres} &nbsp;
+						strong Apellido:
+						| &nbsp; #{doce[0].apellidos} &nbsp;
+						strong ci: &nbsp;
+						| &nbsp; #{doce[0].ci} &nbsp;
 					hr
-					h4 Cursos
+					h4 Subir Contenido a :
 					if (cursos == 0)
 						p No tiene Curso
 					else
@@ -36,5 +39,18 @@ html
 										a.btn.btn-info.btn-block(href='/doce/add_content/'+n.id+'') #{n.nombre} Nivel inicial
 									else
 										a.btn.btn-info.btn-block(href='/doce/add_content/'+n.id+'') #{n.nombre} Nivel primario
+				.col-md-6.border.border-dark.jumbotron.fondcol
+					hr
+					h4 Ver Contenido de :
+					if (cursos == 0)
+						p No tiene Curso
+					else
+						for n in cursos
+							.row
+								.col-sm-6.my-1
+									if n.nivel <=1
+										a.btn.btn-info.btn-block(href='/doce/content/') #{n.nombre} Nivel inicial
+									else
+										a.btn.btn-info.btn-block(href='/doce/content/') #{n.nombre} Nivel primario
 				
 				

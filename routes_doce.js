@@ -57,17 +57,30 @@ router.route('/add_content/:id')
 			descripcion : req.body.descripcion,
 			contenido : req.files.archivo.path,
 			areaId : req.body.area,
-			cursoId : req.params.id
+			cursoId : req.params.id,
+			docenteId: req.session.usuario
 		}
 		con.query("INSERT INTO contenido set ?",[contenido],function(err,result){
 			if(err) throw err;
 			console.log('recibido...')
-			res.send('received...')
+			res.redirect('/doce')
 			
 		})
 		
 	})
 
+
+
+/* Ver contenido*/
+router.route('/content')
+	.get(function(req,res){
+		con.query("SELECT * FROM contenido",[], function(err,result){
+			if(err) throw err;
+			res.render('docente/showContent.pug',{content:result})
+		})
+		
+	})
+	
 
 /* /home/contenido */
 // router.route('/contenido')
