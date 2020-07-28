@@ -15,17 +15,27 @@ html
 		// Contenderores
 		.container-md
 			.row.espacio
-				.col-md-7.border.border-dark.jumbotron
+				.col-md-7.border.border-dark.jumbotron.fondcol
 					span(style='color:black')
 						span(style='font-size: 48px') U.E. Regimiento Aroma
 					h4
-					p Bienvenidos a la Plataforma de contenidos 
-					p Recibe subida de archivos pdf
+					p Bienvenidos a la Plataforma 
+					p Este sitio aun se encuentra en fase de desarrollo
+					p.text-danger Orientado para la gestion de contenidos de aprendizaje para la U.E. Reg. Aroma
+					p.text-danger Contactese con el admin para obtener las llaves de ingreso
+					p
+						| ingreso para alumnos ----->
+						a.btn.btn-info(href='/home/nivel/1')  Cursos Nivel Inicial
+					hr
+					p
+						| ingreso para alumnos ----->
+						a.btn.btn-info(href='/home/nivel/2')  Cursos Nivel Primario
 					
 				.col-md-1
 				// contenedor login
 				.border.border-dark.col-md-4.jumbotron
 					h2 Iniciar sesion 
+					p.text-danger solo para administradores y docentes.
 					hr
 					form(action='/session', method='post')
 						.form-group
@@ -38,7 +48,7 @@ html
 							.col-xs-6.col-sm-6
 								input.btn.btn-primary.btn-block(type='submit', value='iniciar')
 	footer
-		p version beta
+		p version beta ----- 
 		style(type='text/css').
 			.fond_color {
 			background-color: #549EB8;

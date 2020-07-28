@@ -11,7 +11,7 @@ router.get('/', function(req, res){
 		if(err) throw err;
 		docente = result2;
 	})
-	/*Consulta para extraer perfil de docente*/
+	/*Consulta para extraer cursos del docente*/
 	con.query("SELECT * FROM curso WHERE docenteId=?",[req.session.usuario],function(err,result){
 			if(err) throw err;
 			console.log(result);
@@ -58,7 +58,8 @@ router.route('/add_content/:id')
 			contenido : req.files.archivo.path,
 			areaId : req.body.area,
 			cursoId : req.params.id,
-			docenteId: req.session.usuario
+			docenteId: req.session.usuario,
+			tipo: "docu"
 		}
 		con.query("INSERT INTO contenido set ?",[contenido],function(err,result){
 			if(err) throw err;
@@ -68,15 +69,66 @@ router.route('/add_content/:id')
 		})
 		
 	})
+/*agregar contenido video*/
 
-
-
-/* Ver contenido*/
-router.route('/content')
+router.route('/add_content_video/:id')
 	.get(function(req,res){
-		con.query("SELECT * FROM contenido",[], function(err,result){
+		con.query("SELECT * FROM area",[], function(err,result){
+			if(err) throw err;
+			res.render('contenidos/add_content_video.pug',{areas:result,cursoId:req.params.id})
+		})
+		
+	})
+	.post(function(req,res){
+		let url = req.body.uri;
+		let videoId = url.split("/");
+		let contenido = {
+			titulo : req.body.titulo,
+			seccion : req.body.seccion,
+			descripcion : req.body.descripcion,
+			contenido : videoId.pop(),
+			areaId : req.body.area,
+			cursoId : req.params.id,
+			docenteId: req.session.usuario,
+			tipo:"video"
+		}
+		//Output contenido.contenido = Id video
+		con.query("INSERT INTO contenido set ?",[contenido],function(err,result){
+			if(err) throw err;
+			console.log('recibido...')
+			res.redirect('/doce')
+			
+		})
+		
+	})
+
+/* Ver todos contenido del curso*/
+router.route('/showAll/:id')
+	.get(function(req,res){
+		con.query("SELECT * FROM contenido WHERE cursoId=?",[req.params.id], function(err,result){
 			if(err) throw err;
 			res.render('docente/showContent.pug',{content:result})
+		})
+		
+	})
+
+
+/* Ver contenido en especifico*/
+router.route('/content/:id')
+	.get(function(req,res){
+		con.query("SELECT * FROM contenido WHERE id=?",[req.params.id], function(err,result){
+			if(err) throw err;
+			res.render('contenidos/show.pug',{content:result})
+		})
+		
+	})
+
+/* Ver contenido video*/
+router.route('/video/:id')
+	.get(function(req,res){
+		con.query("SELECT * FROM contenido WHERE id=?",[req.params.id], function(err,result){
+			if(err) throw err;
+			res.render('contenidos/show_video.pug',{content:result})
 		})
 		
 	})

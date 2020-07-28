@@ -17,7 +17,7 @@ html
 		// Contenderores
 		.container
 			.row
-				.col-md-6.border.border-dark.jumbotron.fondcol
+				.col-md-8.border.border-dark.jumbotron.fondcol
 					h4 Perfil
 					hr
 					p 
@@ -34,12 +34,29 @@ html
 					else
 						for n in cursos
 							.row
-								.col-sm-6.my-1
+								.col-sm-12.my-1.border.border-light
 									if n.nivel <=1
-										a.btn.btn-info.btn-block(href='/doce/add_content/'+n.id+'') #{n.nombre} Nivel inicial
+										.row
+											.col-sm-5
+												a.btn.btn-secondary(href='') #{n.nombre} Nivel Inicial
+											.col-sm-3
+												a.btn.btn-warning(href='/doce/add_content/'+n.id+'') Documento
+											.col-sm-3
+												a.btn.btn-danger(href='/doce/add_content_video/'+n.id+'') Video
+											.col-sm-1
+												a.btn.btn-info(href='/doce/showAll/'+n.id+'') Ver
+										
 									else
-										a.btn.btn-info.btn-block(href='/doce/add_content/'+n.id+'') #{n.nombre} Nivel primario
-				.col-md-6.border.border-dark.jumbotron.fondcol
+										.row
+											.col-sm-5
+												a.btn.btn-secondary(href='') #{n.nombre} Nivel Inicial
+											.col-sm-3
+												a.btn.btn-warning(href='/doce/add_content/'+n.id+'') Documento
+											.col-sm-3
+												a.btn.btn-danger(href='/doce/add_content_video/'+n.id+'') Video
+											.col-sm-1
+												a.btn.btn-info(href='/doce/showAll/'+n.id+'') Ver
+				//- .col-md-6.border.border-dark.jumbotron.fondcol
 					hr
 					h4 Ver Contenido de :
 					if (cursos == 0)
@@ -49,8 +66,8 @@ html
 							.row
 								.col-sm-6.my-1
 									if n.nivel <=1
-										a.btn.btn-info.btn-block(href='/doce/content/') #{n.nombre} Nivel inicial
+										a.btn.btn-info.btn-block(href='/doce/showAll/'+n.id+'') #{n.nombre} Nivel inicial
 									else
-										a.btn.btn-info.btn-block(href='/doce/content/') #{n.nombre} Nivel primario
+										a.btn.btn-info.btn-block(href='/doce/showAll/'+n.id+'') #{n.nombre} Nivel primario
 				
 				

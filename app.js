@@ -93,7 +93,8 @@ app.get('/help',function(req,res){
 	res.send('Ayuda...')
 })
 app.get('/contact',function(req,res){
-	res.send('Contactos...')
+	res.send(`Contactos...
+		twitter : @miguel_9641`)
 })
 app.use("/admin", session_admin);
 app.use("/admin",routes_admin);
