@@ -88,7 +88,8 @@ El usuario administrador tiene el control de los usuarios docentes, donde puede 
   Luego llenar los campos del formulario con los datos del nuevo usuario
   
 ## Recomendaciones
-Este proyecto estara modificandose constantemente hasta llegar a una version final estable. 
+Este proyecto estara modificandose constantemente hasta llegar a una version final estable.
+desplegado en : https://app-aroma.herokuapp.com/
 
 
 
